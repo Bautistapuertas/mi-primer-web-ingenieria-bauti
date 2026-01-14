@@ -29,5 +29,55 @@
         <p>Estado del servidor: <strong>Online</strong></p>
         <p>📧 Contacto: Puertasbauti7@gmail.com</p>
     </div>
+    <div class="card">
+    <h3>Simulador de Procesos SO</h3>
+    <button id="btnCrear">Crear Proceso (Nuevo)</button>
+    <div id="cola-procesos" style="margin-top: 10px; display: flex; gap: 5px;">
+        </div>
+</div>
+
+<script>
+    // Acá vamos a programar la lógica
+    console.log("Sistema de simulación iniciado...");
+    const btnCrear = document.getElementById('btnCrear');
+const colaProcesos = document.getElementById('cola-procesos');
+let contadorProcesos = 0;
+
+btnCrear.addEventListener('click', () => {
+    contadorProcesos++;
+    
+    // 1. Crear el proceso (Estado: NUEVO)
+    const nuevoProceso = document.createElement('div');
+    nuevoProceso.id = `proc-${contadorProcesos}`;
+    nuevoProceso.style.cssText = 'padding: 10px; background-color: #4a90e2; border-radius: 5px; color: white; transition: all 0.5s;';
+    nuevoProceso.innerHTML = `P-${contadorProcesos}`;
+    
+    colaProcesos.appendChild(nuevoProceso);
+    console.log(`P-${contadorProcesos} en estado NUEVO`);
+
+    // 2. Simular el paso a EJECUTANDO (cambio de estado)
+    // Usamos un delay para simular que el planificador lo selecciona
+    setTimeout(() => {
+        ejecutarProceso(nuevoProceso.id);
+    }, 2000 * contadorProcesos); // Se van ejecutando de a poco
+});
+
+function ejecutarProceso(id) {
+    const proc = document.getElementById(id);
+    if (proc) {
+        proc.style.backgroundColor = '#47cf73'; // Verde: EJECUTANDO
+        proc.innerHTML += " (Run)";
+        console.log(`${id} pasando a estado EJECUTANDO`);
+        
+        // 3. Simular que el proceso TERMINA
+        setTimeout(() => {
+            proc.style.opacity = "0.3";
+            proc.innerHTML = proc.innerHTML.replace("(Run)", "(Exit)");
+            console.log(`${id} FINALIZADO`);
+        }, 3000);
+    }
+}
+</script>
+
 </body>
 </html>
