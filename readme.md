@@ -1,16 +1,17 @@
-# 🚀 Mi Primer Proyecto de Ingeniería Web
-Este es mi primer repositorio profesional donde aprendí a dominar el flujo de trabajo de Git y GitHub.
+# 👋 ¡Hola, soy Bauti!
 
-## 🛠️ Tecnologías utilizadas
-* **HTML5 / CSS3**: Para la estructura y diseño.
-* **Git**: Control de versiones.
-* **GitHub Pages**: Hosting gratuito.
+Estudiante de **Ingeniería** enfocado en desarrollo de software y sistemas. 🚀
 
-## 📈 Lo que aprendí en este proyecto
-- [x] Nivel 1: Ciclo básico (Add, Commit, Push).
-- [x] Nivel 2: Ramas y Fusiones (Branches & Merge).
-- [x] Nivel 2.5: Resolución de conflictos.
-- [x] Nivel 3: Colaboración con Pull Requests.
+## 🛠️ Tecnologías y Herramientas
+- **Web:** HTML5, CSS3 (Modo Oscuro especializado).
+- **Sistemas:** Linux, VS Code, Git & GitHub (Nivel Experto).
+- **Intereses:** Procesos de SO, Estadística y Paradigmas de Programación.
 
----
-*Mantenido por [Bautista] - Estudiante de Ingeniería*
+## 📊 Mis Estadísticas de GitHub
+Aquí podés ver mi actividad real como desarrollador:
+
+![Stats de Bauti](https://github-readme-stats.vercel.app/api?username=Bautistapuertas&show_icons=true&theme=tokyonight)
+![Lenguajes más usados](https://github-readme-stats.vercel.app/api/top-langs/?username=Bautistapuertas&layout=compact&theme=tokyonight)
+
+## 📁 Proyectos Destacados
+* [**mi-primer-web-ingenieria-bauti**](https://github.com/Bautistapuertas/mi-primer-web-ingenieria-bauti): Mi primer sitio web profesional con despliegue automático.
