@@ -37,7 +37,6 @@
 </div>
 
 <script>
-  // Esperamos a que toda la página (el DOM) esté lista
 window.addEventListener('DOMContentLoaded', () => {
     const btnCrear = document.getElementById('btnCrear');
     const colaProcesos = document.getElementById('cola-procesos');
@@ -45,18 +44,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
     btnCrear.addEventListener('click', () => {
         contador++;
-        console.log("Creando proceso " + contador);
-
-        const div = document.createElement('div');
-        div.innerHTML = `P-${contador}`;
-        div.style.cssText = 'padding:10px; background:blue; color:white; margin:5px; border-radius:5px;';
         
+        // 1. ESTADO: NUEVO (Azul)
+        const div = document.createElement('div');
+        div.innerHTML = `P-${contador} (Nuevo)`;
+        div.style.cssText = 'padding:10px; background:#4a90e2; color:white; margin:5px; border-radius:5px; transition: all 0.5s;';
         colaProcesos.appendChild(div);
 
+        // 2. PASO A EJECUTANDO (Verde) - Sucede a los 1.5 segundos
         setTimeout(() => {
-            div.style.background = 'green';
-            div.innerHTML += " (Ejecutando)";
-        }, 1000);
+            div.style.background = '#47cf73'; 
+            div.innerHTML = `P-${contador} (Ejecutando)`;
+            console.log(`Proceso ${contador} en CPU`);
+
+            // 3. PASO A TERMINADO (Rojo) - Sucede 3 segundos después de estar en verde
+            setTimeout(() => {
+                div.style.background = '#e74c3c'; 
+                div.innerHTML = `P-${contador} (Terminado)`;
+                div.style.opacity = "0.6"; // Efecto visual de proceso finalizado
+                console.log(`Proceso ${contador} liberó memoria`);
+            }, 3000);
+
+        }, 1500);
     });
 });
 </script>
