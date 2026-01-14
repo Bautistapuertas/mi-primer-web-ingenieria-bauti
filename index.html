@@ -37,46 +37,28 @@
 </div>
 
 <script>
-    // Acá vamos a programar la lógica
-    console.log("Sistema de simulación iniciado...");
+  // Esperamos a que toda la página (el DOM) esté lista
+window.addEventListener('DOMContentLoaded', () => {
     const btnCrear = document.getElementById('btnCrear');
-const colaProcesos = document.getElementById('cola-procesos');
-let contadorProcesos = 0;
+    const colaProcesos = document.getElementById('cola-procesos');
+    let contador = 0;
 
-btnCrear.addEventListener('click', () => {
-    contadorProcesos++;
-    
-    // 1. Crear el proceso (Estado: NUEVO)
-    const nuevoProceso = document.createElement('div');
-    nuevoProceso.id = `proc-${contadorProcesos}`;
-    nuevoProceso.style.cssText = 'padding: 10px; background-color: #4a90e2; border-radius: 5px; color: white; transition: all 0.5s;';
-    nuevoProceso.innerHTML = `P-${contadorProcesos}`;
-    
-    colaProcesos.appendChild(nuevoProceso);
-    console.log(`P-${contadorProcesos} en estado NUEVO`);
+    btnCrear.addEventListener('click', () => {
+        contador++;
+        console.log("Creando proceso " + contador);
 
-    // 2. Simular el paso a EJECUTANDO (cambio de estado)
-    // Usamos un delay para simular que el planificador lo selecciona
-    setTimeout(() => {
-        ejecutarProceso(nuevoProceso.id);
-    }, 2000 * contadorProcesos); // Se van ejecutando de a poco
-});
-
-function ejecutarProceso(id) {
-    const proc = document.getElementById(id);
-    if (proc) {
-        proc.style.backgroundColor = '#47cf73'; // Verde: EJECUTANDO
-        proc.innerHTML += " (Run)";
-        console.log(`${id} pasando a estado EJECUTANDO`);
+        const div = document.createElement('div');
+        div.innerHTML = `P-${contador}`;
+        div.style.cssText = 'padding:10px; background:blue; color:white; margin:5px; border-radius:5px;';
         
-        // 3. Simular que el proceso TERMINA
+        colaProcesos.appendChild(div);
+
         setTimeout(() => {
-            proc.style.opacity = "0.3";
-            proc.innerHTML = proc.innerHTML.replace("(Run)", "(Exit)");
-            console.log(`${id} FINALIZADO`);
-        }, 3000);
-    }
-}
+            div.style.background = 'green';
+            div.innerHTML += " (Ejecutando)";
+        }, 1000);
+    });
+});
 </script>
 
 </body>
